@@ -20,7 +20,7 @@ public class OsgiFrameworkService {
         try {
             osgiFramework.init();
             BundleContext bundleContext = osgiFramework.getBundleContext();
-            URL url = getS3BundleURL();
+            URL url = getRemoteBundleURL();
             Bundle bundle = bundleContext.installBundle(url.toExternalForm());
             bundle.start();
             osgiFramework.start();
@@ -34,8 +34,8 @@ public class OsgiFrameworkService {
         return new File("/Users/Sohamgh/.motech/bundles/dummy/dummy-bundle-1.0.jar").toURL();
     }*/
 
-    private URL getS3BundleURL() throws MalformedURLException {
-        String url = "https://dummy-bundle.s3-ap-southeast-1.amazonaws.com/dummy-bundle-1.0.jar";
+    private URL getRemoteBundleURL() throws MalformedURLException {
+        String url = "https://dummy-bundle.s3.amazonaws.com/dummy-bundle-1.0.jar?AWSAccessKeyId=AKIAJKSRCIF4BJMJR4WA&Expires=1372359159&Signature=6L2mWSE0Hxa9FG3qWsmATrkJTXI%3D";
         return new URL(url);
     }
 }
