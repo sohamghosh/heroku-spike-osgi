@@ -6,7 +6,6 @@ import org.osgi.framework.launch.Framework;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -31,9 +30,9 @@ public class OsgiFrameworkService {
         }
     }
 
-    private URL getLocalBundleURL() throws MalformedURLException {
+    /*private URL getLocalBundleURL() throws MalformedURLException {
         return new File("/Users/Sohamgh/.motech/bundles/dummy/dummy-bundle-1.0.jar").toURL();
-    }
+    }*/
 
     private URL getS3BundleURL() throws MalformedURLException {
         String url = "https://dummy-bundle.s3-ap-southeast-1.amazonaws.com/dummy-bundle-1.0.jar";
